@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <a href="{% url 'logout' %}">logout</a>   
+    <title>Table</title>
+</head>
+<body> {{student}}
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>student_name</th>
+                    <th>student_id</th>
+                    <th>is_active</th>
+                    <th>student_is</th>
+                    <th>image</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stu in student %}
+                <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{stu.student_name}}</td>
+                        <td>{{stu.student_id}}</td>
+                        <td>{{stu.is_active}}</td>
+                        <td>{{stu.student_id}}</td>
+                        <td>{{stu.image}}</td>
+                        <!-- <td><a href="edit/{{stu.id}}">EDIT</a></td> -->
+                        <td><a href="{% url 'edit' stu.id %}">EDIT</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </div>
+    </table>
+</body>
+</html>
